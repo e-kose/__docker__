@@ -1,12 +1,63 @@
-version: ' 3 '
+version: ' 3.8 '
 
 services:
     nginx:
-        build: ./requirements/nginx
+        build:
+            context:  ./requirements/nginx
         container_name: nginx
         ports:
-         - "443:443"
+            - "443:443"
         volumes:
-         - wordpress_files:/var/www/html
+            - wordpress_files:/var/www/html
         networks:
-         - my_network
+            - my_network
+        depends_on:
+            - mariadb
+
+    mariadb:
+        build: 
+            context: ./requirements/mariadb
+        container_name: mariadb
+        expose:
+            - 3306
+        volumes:
+            - db_data:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: ${DB_NAME}
+            MYSQL_USER: ${DB_USER}
+            MYSQL_ROOT_PASSWORD: ~/Desktop/data/secrets/db_root_password
+            MYSQL_PASSWORD: ~/Desktop/data/secrets/db_password
+        secrets: 
+            - db_root_password
+            - db_password
+        networks:
+            - my_network
+    
+    wordpress:
+        build:
+            context: ./requirements/wordpress
+        container_name: wordpress
+        expose:
+            - 9000
+        volumes:
+            - wordpress_files:/var/www/html
+        environmet:
+            WORDPRESS_DB_HOST: ${DB_HOST}
+            WORDPRESS_DB_NAME: ${DB_NAME}
+            WORDPRESS_DB_USER: ${DB_USER}
+            WORDPRESS_DB_PASSWORD: ~/Desktop/data/secrets/db_password
+        secrets:
+            - db_password
+        depends_on:
+            - mariadb
+        networks:
+            - my_network
+secrets:
+    file:
+        db_root_password: 
+            file: db_root_password.txt
+        db_password: 
+            file: db_password.txt
+volumes:
+    db_data:
+    wordpress_files:
