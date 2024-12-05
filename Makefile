@@ -14,5 +14,3 @@ down:
 clean:down
 	docker-compose -f srcs/docker-compose.yml rm -f
     docker volume prune -f
-
-	wget -c -O "Halo.S02E01.1080p.HEVC.x265-MeGusta%5Beztv.re%5D.mkv" -t 20 "https://www.2embed.skin/tv/tt2934286&s=1&e=1"
