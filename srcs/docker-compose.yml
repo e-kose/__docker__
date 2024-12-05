@@ -12,7 +12,8 @@ services:
         networks:
             - my_network
         depends_on:
-            - mariadb
+            - wordpress
+        restart: always
 
     mariadb:
         build: 
@@ -32,6 +33,7 @@ services:
             - db_password
         networks:
             - my_network
+        restart: always
     
     wordpress:
         build:
@@ -52,6 +54,7 @@ services:
             - mariadb
         networks:
             - my_network
+        restart: always
 secrets:
     file:
         db_root_password: 
