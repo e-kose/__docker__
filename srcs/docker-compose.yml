@@ -58,11 +58,11 @@ services:
 
 secrets:
   db_user:
-    file: /home/user/data/secrets/credentials.txt
+    file: ../secrets/credentials.txt
   db_root_password:
-    file: /home/user/data/secrets/db_root_password.txt
+    file: ../secrets/db_root_password.txt
   db_password:
-    file: /home/user/data/secrets/db_password.txt
+    file: ../secrets/db_password.txt
 
 volumes:
   db_data:
