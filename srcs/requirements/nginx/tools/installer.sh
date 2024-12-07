@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Sertifika dosyalarının var olup olmadığını kontrol et
 if [ -f "/root/certs/nginx-selfsigned.key" ] && [ -f "/root/certs/nginx-selfsigned.crt" ]; then
     echo "Certificate available"
 else

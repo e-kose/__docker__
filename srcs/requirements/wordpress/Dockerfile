@@ -25,10 +25,14 @@ COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 RUN mkdir /run/php
 
 COPY ./tools/WordPressInstaller.sh /usr/local/bin/
+
 RUN chmod +x /usr/local/bin/WordPressInstaller.sh
+
 ENTRYPOINT ["/usr/local/bin/WordPressInstaller.sh"]
 
 WORKDIR /var/www/html/
+
+COPY ./tools/wp-config.php .
 
 EXPOSE 9000
 
