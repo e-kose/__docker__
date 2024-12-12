@@ -1,9 +1,7 @@
 #!/bin/sh
 set -e
 
-if [ -f ./wp-config.php ]; then
-    echo "WordPress already downloaded"
-else
+
     echo "WordPress Downloading"
 
     rm -rf ./wp-admin ./wp-content ./wp-includes
@@ -20,6 +18,6 @@ else
     rm -rf latest.tar.gz
     rm -rf wordpress
 
-    echo "WordPress downloaded and wp-config.php created."
-fi
+    echo "WordPress downloaded"
+
 exec "$@"

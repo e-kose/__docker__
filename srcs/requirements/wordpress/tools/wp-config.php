@@ -20,16 +20,16 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', getenv('DB_NAME') );
+define( 'DB_NAME', getenv('WORD_PRESS_DB_NAME') );
 
 /** MySQL veritabanı kullanıcı adı */
-define( 'DB_USER', getenv('DB_USER') );
+define( 'DB_USER', file_get_contents('/run/secrets/db_user') );
 
 /** MySQL veritabanı şifresi */
 define( 'DB_PASSWORD', file_get_contents('/run/secrets/db_password') );
 
 /** MySQL ana makinesi */
-define( 'DB_HOST', getenv('WORDPRESS_DB_HOST') );
+define( 'DB_HOST', getenv('WORD_PRESS_DB_HOST') );
 
 /** Veritabanı karakter seti */
 define( 'DB_CHARSET', 'utf8mb4' );
