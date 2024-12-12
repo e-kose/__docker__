@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
 
-
     echo "WordPress Downloading"
 
     rm -rf ./wp-admin ./wp-content ./wp-includes
