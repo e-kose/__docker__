@@ -32,8 +32,6 @@ ENTRYPOINT ["/usr/local/bin/WordPressInstaller.sh"]
 
 WORKDIR /var/www/html/
 
-COPY ./tools/wp-config.php .
-
 EXPOSE 9000
 
 CMD ["/usr/sbin/php-fpm7.4", "-F"]

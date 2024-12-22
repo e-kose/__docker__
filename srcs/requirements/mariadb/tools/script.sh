@@ -5,7 +5,7 @@ DB_ROOT_PASSWORD=$(cat /run/secrets/db_root_password)
 DB_USER=$(cat /run/secrets/db_user)
 DB_PASSWORD=$(cat /run/secrets/db_password)
 
-service mariadb restart
+service mariadb start
 
 until mysqladmin ping -h "localhost" --silent; do
     echo "MariaDB is starting..."
@@ -20,6 +20,6 @@ mysql -uroot -p"${DB_ROOT_PASSWORD}" <<-EOSQL
     CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE};
 EOSQL
 
-kill $(cat /run/mysqld/mysqld.pid)
+service mariadb stop
 
 exec mysqld

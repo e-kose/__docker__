@@ -1,4 +1,4 @@
-version: '3'
+version: '3.1'
 
 services:
   nginx:
@@ -21,12 +21,14 @@ services:
     build:
       context: ./requirements/mariadb
     container_name: mariadb
+    expose:
+      - "3306"
     volumes:
       - db_data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_USER: /run/secrets/db_user
-      MYSQL_ROOT_PASSWORD: /run/secrets/db_root_password
+      MYSQL_ROOT_PASSWORD: run/secrets/db_root_password
       MYSQL_PASSWORD: /run/secrets/db_password
     secrets:
       - db_root_password
@@ -40,6 +42,8 @@ services:
     build:
       context: ./requirements/wordpress
     container_name: wordpress
+    expose:
+      - "9000"
     volumes:
       - wordpress_files:/var/www/html
     environment:
@@ -50,6 +54,7 @@ services:
     secrets:
       - db_user
       - db_password
+      - db_root_password
     depends_on:
       - mariadb
     networks:
@@ -64,10 +69,20 @@ secrets:
   db_password:
     file: ../secrets/db_password.txt
 
-volumes:
-  db_data:
-  wordpress_files:
-
 networks:
   my_network:
     driver: bridge
+
+volumes:
+  db_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/user/data/mariadb
+  wordpress_files:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/user/data/wordpress
