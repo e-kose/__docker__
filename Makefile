@@ -2,10 +2,13 @@
 
 all: build up
 
+init_dirs:
+	mkdir -p ~/data/mariadb ~/data/wordpress
+
 build:
 	docker-compose -f srcs/docker-compose.yml build
 
-up:
+up: init_dirs
 	docker-compose -f srcs/docker-compose.yml up -d 
 
 down:
