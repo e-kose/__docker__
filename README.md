@@ -271,7 +271,7 @@ Ayrıca, FastCGI ile soket iletişimi aracılığıyla arka uçta bir PHP sunucu
 ## Kurulum
 1. Proje klasörünü klonlayın:
     ```
-    git clone https://github.com/Xperaz/inception.git
+    git clone https://github.com/e-kose/__docker__.git
     ```
 
 2. Klasöre gidin:
