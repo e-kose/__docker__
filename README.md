@@ -1,7 +1,7 @@
 # Inception (42 Projesi)
 ## Açıklama
 
-Alpine Linux veya Debian Buster üzerinde docker-compose kullanarak Docker tabanlı bir WordPress LEMP yığını oluşturma. Tüm proje kişisel sanal makinemizde yapılmalıdır. Daha fazla bilgi için konu dosyasına bakın: [Konu Belgesi](https://github.com/Xperaz/inception/blob/main/en.subject.pdf).
+Alpine Linux veya Debian Buster üzerinde docker-compose kullanarak Docker tabanlı bir WordPress LEMP yığını oluşturma. Tüm proje kişisel sanal makinemizde yapılmalıdır.
 
 ![Inception](img/docker.png "Inception")
 
@@ -167,7 +167,7 @@ daha fazla bilgi için: [Docker vs Sanal Makine (VM) - Bilmeniz Gereken Temel Fa
 ### 🤔 LEMP Yığını Nedir?
 Konu, bir LEMP yığını oluşturmamızı istiyor:
 - L, işletim sistemi olarak **Linux** anlamına gelir
-- E, web sunucusu olarak **Nginx** ("Engine X" olarak telaffuz edilir)
+- E, web sunucusu olarak **Nginx**
 - M, veritabanı olarak **Mariadb**
 - P, sunucu ve veritabanıyla iletişim kuran sunucu tarafı komut dosyası dili olarak **PHP**
 Yığının her bileşeni birbiriyle iletişim kurar:
@@ -281,7 +281,7 @@ Ayrıca, FastCGI ile soket iletişimi aracılığıyla arka uçta bir PHP sunucu
 
 3. Imageleri oluşturun ve altyapıyı dağıtın:
     ```
-    make build
+    make
     ```
 
 4. Konteynerları, imageleri, birimleri ve ağı durdurun ve kaldırın:
