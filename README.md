@@ -1,7 +1,7 @@
 # Inception (42 Projesi)
 ## Açıklama
 
-Alpine Linux veya Debian Buster üzerinde docker-compose kullanarak Docker tabanlı bir WordPress LEMP yığını oluşturma. Tüm proje kişisel sanal makinemizde yapılmalıdır.
+Alpine Linux veya Debian Buster üzerinde docker-compose kullanarak Docker tabanlı bir WordPress LEMP yığını oluşturma.
 
 ![Inception](img/docker.png "Inception")
 
@@ -303,5 +303,4 @@ Ayrıca, FastCGI ile soket iletişimi aracılığıyla arka uçta bir PHP sunucu
 - [MariaDB Nasıl Kurulur](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-20-04)
 - [wp-cli Kullanarak WordPress Nasıl Kurulur](https://blog.sucuri.net/2022/11/wp-cli-how-to-install-wordpress-via-ssh.html)
 - [CGI ve FastCGI Öğrenin](https://www.howtoforge.com/install-adminer-database-management-tool-on-debian-10/)
-- [vsftpd Nasıl Kurulur](https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-ubuntu-20-04)
 - [adminer kurulumu](https://www.howtoforge.com/install-adminer-database-management-tool-on-debian-10/)
